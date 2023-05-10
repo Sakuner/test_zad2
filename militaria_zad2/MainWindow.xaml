@@ -1,0 +1,29 @@
+﻿<Window x:Class="militaria_zad2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:militaria_zad2"
+        xmlns:vm="clr-namespace:militaria_zad2.ViewModels"
+        mc:Ignorable="d"
+        Title="Zadanie 2" Height="450" Width="600">
+    <Grid>
+        <DataGrid Grid.Row="1" ItemsSource="{Binding Areas}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Nazwa" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Id nadrzędny" Binding="{Binding ParentId}" />
+                <DataGridTemplateColumn Header="Nazwa Poziom">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LevelName}" Background="{Binding LevelColor}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Id poziom" Binding="{Binding LevelId}" />
+                <DataGridTextColumn Header="Czy zmienne" Binding="{Binding IsChangeable}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
+
